@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gujarat Family ID - System Architecture</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; color: #333; line-height: 1.6; }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 30px; }
+        .box { background: #f8f9fa; border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        ul { margin: 5px 0; padding-left: 20px; }
+        @media print {
+            body { margin: 20px; }
+            button { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gujarat Family ID: Beneficiary Management System</h1>
+    <p><strong>Architecture Style:</strong> Modular Monolith (Flask Backend + React Frontend)</p>
+
+    <h2>1. Presentation Layer (Frontend)</h2>
+    <div class="box">
+        <p><strong>Technology:</strong> React, Vite, React Router, Axios</p>
+        <ul>
+            <li><strong>Citizen Portal:</strong> Household registration, member onboarding, and eligibility verification.</li>
+            <li><strong>Admin Dashboard:</strong> Application review system, statistics tracking, and duplicate record detection.</li>
+        </ul>
+    </div>
+
+    <h2>2. Business Logic Layer (Backend)</h2>
+    <div class="box">
+        <p><strong>Technology:</strong> Python / Flask (Modular Monolith Structure)</p>
+        <ul>
+            <li><strong>Authentication:</strong> JWT-based role authorization (CITIZEN vs. ADMIN).</li>
+            <li><strong>Eligibility Engine:</strong> Dynamic JSON rule evaluation (checking income, age, gender, and occupation).</li>
+            <li><strong>Workflow Management:</strong> Automatic benefit generation upon application approval.</li>
+        </ul>
+    </div>
+
+    <h2>3. Database Layer</h2>
+    <div class="box">
+        <p><strong>Technology:</strong> Supabase (PostgreSQL)</p>
+        <ul>
+            <li><code>families</code>: Stores core household and income metadata.</li>
+            <li><code>members</code>: Stores individual dependent profiles linked via foreign keys.</li>
+            <li><code>schemes</code>: Stores welfare programs and JSON-based criteria.</li>
+            <li><code>applications & benefits</code>: Tracks lifecycle state and active distributions.</li>
+        </ul>
+    </div>
+
+    <br>
+    <button onclick="window.print()" style="padding: 10px 20px; background: #0056b3; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 4px;">Save as PDF</button>
+
+</body>
+</html>
